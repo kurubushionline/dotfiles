@@ -8,13 +8,14 @@ call vundle#rc()
 Bundle 'Shougo/unite.vim'
 "補完系
 Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neocomplcache-snippets-complete'
+Bundle 'Shougo/neosnippet'
 "別プロセスのyank
 Bundle 'vim-scripts/yanktmp.vim'
 "ruby
 Bundle 'vim-ruby/vim-ruby'
 "rails
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-haml'
 
 filetype plugin indent on
 
@@ -75,15 +76,14 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 " <C-n>でのシンタックスチェック
 autocmd FileType ruby :map <C-n> <ESC>:!ruby -cW %<CR>
 
-" 移動系
-imap <c-o> <END>
-imap <c-a> <HOME>
-imap <c-h> <LEFT>
-imap <c-j> <DOWN>
-imap <c-k> <UP>
-imap <c-l> <Right>
-
 set expandtab
 set tabstop<
 set softtabstop=2
 set shiftwidth=2
+set backspace=2
+
+augroup HighlightTrailingSpaces
+  autocmd!
+  autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+  autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
+augroup END
