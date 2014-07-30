@@ -1,0 +1,16 @@
+[user]
+  name = kurubushionline
+  email = keiichi.omosu@luxiar.com
+
+[core]
+  editor = /usr/bin/vim
+[alias]
+  ss = status
+  co = checkout
+  sh = stash
+  b = branch
+  di = diff
+  dc = diff --cached
+
+[push]
+  default = nothing

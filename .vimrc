@@ -4,18 +4,25 @@ filetype off
 set rtp+=~/.vim/vundle.git/
 call vundle#rc()
 
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim
+  call neobundle#rc(expand('~/.vim/bundle/'))
+end
+
 "ファイラー
-Bundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/unite.vim'
+
 "補完系
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neosnippet'
-"別プロセスのyank
-Bundle 'vim-scripts/yanktmp.vim'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle "othree/javascript-libraries-syntax.vim"
 "ruby
-Bundle 'vim-ruby/vim-ruby'
+NeoBundle 'vim-ruby/vim-ruby'
+
 "rails
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-haml'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'slim-template/vim-slim'
 
 filetype plugin indent on
 
